@@ -1,0 +1,22 @@
+{
+  "name": "code-translator-fullstack",
+  "version": "1.0.0",
+  "description": "Code Translator - Full Stack Application",
+  "scripts": {
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd src/main/java/com/example/codeTranslator/code_translator && ./mvnw spring-boot:run",
+    "frontend": "cd frontend && npm start",
+    "install-all": "npm install && cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "code-translator",
+    "react",
+    "spring-boot"
+  ],
+  "author": "",
+  "license": "ISC"
+}
