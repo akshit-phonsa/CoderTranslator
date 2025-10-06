@@ -15,12 +15,16 @@ public class CorsConfig {
     @Bean
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration corsConfig = new CorsConfiguration();
-//        corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
-        corsConfig.setAllowedOrigins(List.of("*"));
+//        corsConfig.setAllowedOrigins(List.of(
+//            "http://localhost:3000",
+//            "https://codertranslator-1.onrender.com"
+//        ));
+        corsConfig.addAllowedOriginPattern("*");
         corsConfig.setMaxAge(3600L);
         corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        corsConfig.setAllowedHeaders(List.of("*"));
-//        corsConfig.setAllowCredentials(true);
+//        corsConfig.setAllowedHeaders("*");
+        corsConfig.addAllowedHeader("*");
+        corsConfig.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfig);
